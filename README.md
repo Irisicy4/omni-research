@@ -1,5 +1,7 @@
 # OmniResearch — papers & datasets front end
 
+**Live:** https://irisicy4.github.io/omni-research/
+
 A two-tab static site for AI/ML researchers:
 
 - **Tab 1 — Feed.** Xiaohongshu-style waterfall of new papers (arXiv / top venues).
@@ -59,21 +61,6 @@ python -m http.server 8000
 ```
 
 (Anything serving static files works — `npx serve`, `caddy file-server`, etc.)
-
-## Hosting on GitHub Pages
-
-1. Create a new **public** GitHub repo (any name, e.g. `omni-research`).
-2. Push these files:
-   ```sh
-   git init
-   git add .
-   git commit -m "Initial OmniResearch MVP"
-   git branch -M main
-   git remote add origin git@github.com:<you>/<repo>.git
-   git push -u origin main
-   ```
-3. In the GitHub repo: **Settings → Pages → Source: Deploy from a branch → main / root**.
-4. The site will appear at `https://<you>.github.io/<repo>/` in a minute or two.
 
 The empty `.nojekyll` file keeps GitHub Pages from running Jekyll over the project —
 required because some directories (`papers/`) start with non-letter chars in some
