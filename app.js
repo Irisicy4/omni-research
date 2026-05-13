@@ -286,10 +286,9 @@
           ${d.specialty ? `<p><strong>Specialty:</strong> ${escapeHTML(d.specialty)}</p>` : ""}
         </div>
         ${
-          d.dataLink || d.loadData
+          d.dataLink
             ? `<div class="card-logistics">
-                 ${d.dataLink ? `<div class="logistics-item"><span class="logistics-label">Data links</span>${links}</div>` : ""}
-                 ${d.loadData ? `<div class="logistics-item"><span class="logistics-label">Load / logistics</span><code>${escapeHTML(d.loadData)}</code></div>` : ""}
+                 <div class="logistics-item"><span class="logistics-label">Data links</span>${links}</div>
                </div>`
             : ""
         }
