@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-05-12T08:00:00Z",
+  "papers": [
+    {
+      "arxiv_id": "2605.11045",
+      "date": "2026-05-12",
+      "title": "World-Model Priors for Photoreal Video Diffusion at 10× Lower Cost",
+      "summary": "Sora-class video, one tenth the GPU bill — a 3B-param world model is all you need as a prior.",
+      "authors": ["L. Carrillo", "Y. Tanaka", "M. Reyes", "S. Park"],
+      "venue": "arXiv",
+      "tags": ["vision", "multimodal", "video"],
+      "image": "https://picsum.photos/seed/2605-11045/900/1200"
+    },
+    {
+      "arxiv_id": "2605.10892",
+      "date": "2026-05-12",
+      "title": "PPO-Gated Mixture of Experts: Learned Routing for Sparse Inference",
+      "summary": "Tossing top-k gating for a tiny RL router cut MoE inference cost 3× with no quality loss.",
+      "authors": ["A. Bhardwaj", "D. Okafor", "Q. Liu"],
+      "venue": "arXiv",
+      "tags": ["llm", "rl"],
+      "image": "https://picsum.photos/seed/2605-10892/900/900"
+    },
+    {
+      "arxiv_id": "2605.10567",
+      "date": "2026-05-12",
+      "title": "Diffusion Transformers Scale Linearly: Empirical Laws Across 12 Orders of FLOPs",
+      "summary": "New scaling curves overthrow SD-XL cost predictions — DiT is cheaper than anyone realized.",
+      "authors": ["E. Kowalski", "R. Mehta", "J. Andersson"],
+      "venue": "arXiv",
+      "tags": ["vision", "theory"],
+      "image": "https://picsum.photos/seed/2605-10567/900/1080"
+    },
+    {
+      "arxiv_id": "2605.10234",
+      "date": "2026-05-12",
+      "title": "Can Foundation Models Replicate Nobel-Winning Experiments? A Diagnostic Benchmark",
+      "summary": "Surprisingly, sometimes yes. We built a 220-task benchmark and a 70B model nailed 41 of them cold.",
+      "authors": ["H. Volkov", "P. Sun", "C. Müller", "F. Diallo"],
+      "venue": "arXiv",
+      "tags": ["llm", "theory"],
+      "image": "https://picsum.photos/seed/2605-10234/900/1200"
+    },
+    {
+      "arxiv_id": "2605.09812",
+      "date": "2026-05-11",
+      "title": "Reasoning Without Thinking: Adaptive Chain-of-Thought Truncation",
+      "summary": "Skip the chain-of-thought when the answer is obvious — saves 40% tokens with no MMLU regression.",
+      "authors": ["T. Nakamura", "B. Larsen", "Z. Singh"],
+      "venue": "ICLR 2026",
+      "tags": ["llm"],
+      "image": "https://picsum.photos/seed/2605-09812/900/900"
+    },
+    {
+      "arxiv_id": "2605.09435",
+      "date": "2026-05-11",
+      "title": "Embodied Agents Learn Object Affordances from YouTube Cooking Videos",
+      "summary": "A 7B vision-language model trained on cooking footage tops the robot grasping benchmark — no robot data.",
+      "authors": ["I. Petrov", "K. Adekunle", "G. Zhang"],
+      "venue": "RSS 2026",
+      "tags": ["multimodal", "vision", "rl"],
+      "image": "https://picsum.photos/seed/2605-09435/900/1100"
+    },
+    {
+      "arxiv_id": "2605.08721",
+      "date": "2026-05-10",
+      "title": "RLHF as Implicit Behavioral Cloning: A Theoretical Equivalence",
+      "summary": "RLHF and imitation learning are the same algorithm in disguise — with concrete consequences for alignment.",
+      "authors": ["O. Ferreira", "N. Halvorsen"],
+      "venue": "arXiv",
+      "tags": ["theory", "rl", "llm"],
+      "image": "https://picsum.photos/seed/2605-08721/900/1000"
+    },
+    {
+      "arxiv_id": "2605.08345",
+      "date": "2026-05-10",
+      "title": "Compressive Retrieval Attention: 10M Token Context, No Quadratic Penalty",
+      "summary": "Streaming compression + retrieval beats full attention at 10M tokens — and matches it under 128K.",
+      "authors": ["W. Chen", "M. Almeida", "S. Petrosyan"],
+      "venue": "arXiv",
+      "tags": ["llm"],
+      "image": "https://picsum.photos/seed/2605-08345/900/1200"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "datasets": [
+    {
+      "type": "Benchmark",
+      "task": "MMMU",
+      "modality": ["Image", "Text"],
+      "domain": "Academic / STEM",
+      "dataPoints": 11500,
+      "taskCategory": "Visual QA",
+      "tags": ["college-level", "discipline-mix"],
+      "dataLink": "https://huggingface.co/datasets/MMMU/MMMU",
+      "loadData": "datasets.load_dataset('MMMU/MMMU', subject)",
+      "dataSize": 3.0,
+      "description": "Massive Multi-discipline Multimodal Understanding benchmark spanning six broad disciplines and 30 subjects. Tests college-level visual reasoning over diagrams, charts, plots, chemical structures, etc.",
+      "specialty": "Strong filter — frontier MLLMs still leave ~30 pp headroom on the harder subjects.",
+      "paperLink": "https://arxiv.org/abs/2311.16502"
+    },
+    {
+      "type": "Training Set",
+      "task": "LAION-5B",
+      "modality": ["Image", "Text"],
+      "domain": "Web crawl",
+      "dataPoints": 5850000000,
+      "taskCategory": "Image-text pretraining",
+      "tags": ["web", "noisy", "filtered"],
+      "dataLink": "https://laion.ai/blog/laion-5b/",
+      "loadData": "img2dataset --url_list ... (see laion-5b docs)",
+      "dataSize": 240.0,
+      "description": "Open dataset of 5.85B CLIP-filtered image-text pairs scraped from Common Crawl. The canonical open-source pretraining set for Stable Diffusion-class models.",
+      "specialty": "Quality is heterogeneous; consider the higher-aesthetic subsets for fine-tuning.",
+      "paperLink": "https://arxiv.org/abs/2210.08402"
+    },
+    {
+      "type": "Benchmark",
+      "task": "ChartQA",
+      "modality": ["Image", "Text"],
+      "domain": "Charts / business",
+      "dataPoints": 32719,
+      "taskCategory": "Chart visual QA",
+      "tags": ["charts", "tabular-reasoning"],
+      "dataLink": "https://huggingface.co/datasets/ahmed-masry/ChartQA",
+      "loadData": "datasets.load_dataset('ahmed-masry/ChartQA')",
+      "dataSize": 1.2,
+      "description": "Visual question answering over real-world charts, mixing human-authored and templated questions. Requires reading axes, comparing values, and doing arithmetic on chart-derived numbers.",
+      "specialty": "Splits cleanly into 'augmented' (template) and 'human' subsets — most models overfit to the easier one.",
+      "paperLink": "https://arxiv.org/abs/2203.10244"
+    },
+    {
+      "type": "Train + Eval",
+      "task": "EPIC-KITCHENS-100",
+      "modality": ["Video", "Audio"],
+      "domain": "Egocentric / kitchen",
+      "dataPoints": 100000,
+      "taskCategory": "Action recognition",
+      "tags": ["egocentric", "long-video"],
+      "dataLink": "https://epic-kitchens.github.io/2024",
+      "loadData": "Custom downloader — see github.com/epic-kitchens/epic-kitchens-100-annotations",
+      "dataSize": 740.0,
+      "description": "100 hours of multi-modal egocentric video shot in 45 home kitchens, with dense action, narration, and gaze annotations. Standard target for fine-grained action / anticipation benchmarks.",
+      "specialty": "Hands-on-object density makes this the de-facto eval for embodied vision-language work."
+    },
+    {
+      "type": "Benchmark",
+      "task": "MTEB (Massive Text Embedding Benchmark)",
+      "modality": ["Text"],
+      "domain": "General NLP",
+      "dataPoints": 56,
+      "taskCategory": "Embedding eval",
+      "tags": ["retrieval", "embeddings", "leaderboard"],
+      "dataLink": "https://huggingface.co/spaces/mteb/leaderboard",
+      "loadData": "pip install mteb; mteb.MTEB(tasks=['MSMARCO', ...]).run(model)",
+      "dataSize": 4.0,
+      "description": "56-task embedding-quality benchmark covering retrieval, classification, clustering, reranking, STS, and more. The de-facto leaderboard for embedding models.",
+      "specialty": "Watch for task leakage in newer embedding models — several frontier models trained on MTEB train splits."
+    },
+    {
+      "type": "Benchmark",
+      "task": "WebArena",
+      "modality": ["Image", "Text"],
+      "domain": "Web agents",
+      "dataPoints": 812,
+      "taskCategory": "Agent task completion",
+      "tags": ["agents", "browser", "long-horizon"],
+      "dataLink": "https://webarena.dev/",
+      "loadData": "git clone https://github.com/web-arena-x/webarena",
+      "dataSize": 8.0,
+      "description": "812 realistic web-browsing tasks on self-hosted clones of Shopify, GitLab, Reddit, and CMS. Evaluates end-to-end multi-step task completion by agents.",
+      "specialty": "Single-host eval — pass-rate numbers are reproducible only with identical Docker tags."
+    }
+  ]
+}

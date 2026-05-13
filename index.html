@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OmniResearch — papers & datasets for AI/ML researchers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">O</div>
+        <div class="brand-text">
+          <div class="brand-title">OmniResearch</div>
+          <div class="brand-sub">papers & datasets for AI/ML</div>
+        </div>
+      </div>
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="feed" role="tab">Feed</button>
+        <button class="tab" data-tab="datasets" role="tab">Datasets</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─────────── TAB 1: Feed ─────────── -->
+  <main id="tab-feed" class="tab-pane active">
+    <div class="feed-controls">
+      <div class="chips" id="feed-chips">
+        <button class="chip active" data-filter="all">Discover</button>
+        <button class="chip" data-filter="llm">LLMs</button>
+        <button class="chip" data-filter="vision">Vision</button>
+        <button class="chip" data-filter="multimodal">Multimodal</button>
+        <button class="chip" data-filter="rl">RL</button>
+        <button class="chip" data-filter="theory">Theory</button>
+      </div>
+      <div class="feed-meta" id="feed-meta">Loading…</div>
+    </div>
+    <div class="feed-masonry" id="feed-masonry" aria-live="polite"></div>
+    <div class="feed-empty" id="feed-empty" hidden>
+      No papers match this filter yet.
+    </div>
+  </main>
+
+  <!-- ─────────── TAB 2: Datasets ─────────── -->
+  <main id="tab-datasets" class="tab-pane">
+    <div class="ds-header">
+      <div>
+        <h1>Multimodal Dataset Registry</h1>
+        <p class="ds-sub">
+          A community-maintained index of public datasets for vision–language,
+          retrieval, embodied, and other multimodal research.
+        </p>
+      </div>
+      <button class="btn-primary" id="btn-open-add-modal">+ Add new dataset</button>
+    </div>
+
+    <div class="table-filters">
+      <div class="filters-grid">
+        <label>Type
+          <select id="filter-type" data-filter-key="type"></select>
+        </label>
+        <label>Domain
+          <select id="filter-domain" data-filter-key="domain"></select>
+        </label>
+        <label>Tag
+          <select id="filter-tag" data-filter-key="tag"></select>
+        </label>
+        <label class="search">Search
+          <input
+            type="search"
+            id="filter-search"
+            placeholder="Search dataset fields…"
+          />
+        </label>
+      </div>
+    </div>
+
+    <div class="ds-meta" id="ds-meta"></div>
+    <div class="ds-grid" id="ds-grid"></div>
+    <div class="ds-empty" id="ds-empty" hidden>
+      No datasets match these filters.
+    </div>
+  </main>
+
+  <!-- ─────────── Paper detail modal ─────────── -->
+  <div class="modal" id="paper-modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel paper-panel" role="dialog" aria-modal="true">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <div id="paper-modal-body" class="paper-body"></div>
+    </div>
+  </div>
+
+  <!-- ─────────── Add-dataset modal ─────────── -->
+  <div class="modal" id="add-modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <h2>Add a new dataset</h2>
+      <form id="add-dataset-form" class="ds-form">
+        <fieldset>
+          <legend>Dataset overview</legend>
+          <div class="field-grid">
+            <label>Type *
+              <select name="type" required>
+                <option value="">—</option>
+                <option>Evaluation Set</option>
+                <option>Training Set</option>
+                <option>Train + Eval</option>
+                <option>Benchmark</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>Name *
+              <input type="text" name="task" required placeholder="MMMU, LAION-5B, …" />
+            </label>
+          </div>
+          <div class="field-grid">
+            <label>Primary modality *
+              <select name="modality" multiple required size="4">
+                <option value="Text">Text</option>
+                <option value="Image">Image</option>
+                <option value="Video">Video</option>
+                <option value="Audio">Audio</option>
+                <option value="Table">Table</option>
+                <option value="Thermal">Thermal</option>
+                <option value="IMU">IMU</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="helper">Hold Cmd/Ctrl for multiple</span>
+            </label>
+            <label>Domain *
+              <input type="text" name="domain" required placeholder="STEM, web, robotics" />
+            </label>
+          </div>
+          <div class="field-grid">
+            <label>Data points
+              <input type="number" name="dataPoints" min="0" placeholder="11500" />
+            </label>
+            <label>Task category *
+              <input type="text" name="taskCategory" required placeholder="Visual QA" />
+            </label>
+            <label>Tags
+              <input type="text" name="tags" placeholder="mRAG, cooking" />
+            </label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Download &amp; logistics</legend>
+          <div class="field-grid">
+            <label>Data link(s) *
+              <textarea name="dataLink" required placeholder="https://huggingface.co/…"></textarea>
+            </label>
+            <label>Load / download notes
+              <textarea name="loadData" placeholder="datasets.load_dataset('…')"></textarea>
+            </label>
+            <label>Data size (GB)
+              <input type="number" name="dataSize" step="0.1" min="0" />
+            </label>
+          </div>
+        </fieldset>
+        <label>Description *
+          <textarea name="description" required></textarea>
+        </label>
+        <label>Specialty / nuance
+          <textarea name="specialty"></textarea>
+        </label>
+        <label>Paper link
+          <input type="text" name="paperLink" placeholder="https://arxiv.org/abs/…" />
+        </label>
+        <details class="retrieval">
+          <summary>Retrieval-specific metadata (optional)</summary>
+          <div class="field-grid">
+            <label>Query modality <input type="text" name="queryMod" /></label>
+            <label>Target modality <input type="text" name="targetMod" /></label>
+            <label>Number of queries <input type="number" name="numQuery" min="0" /></label>
+            <label>Number of candidates <input type="number" name="numCandidates" min="0" /></label>
+          </div>
+        </details>
+        <div class="actions">
+          <button type="reset" class="btn-secondary">Reset</button>
+          <button type="submit" class="btn-primary">Add dataset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-foot">
+    Built on a static GitHub Pages stack. Papers are mock data —
+    swap <code>papers/manifest.json</code> + the <code>YYYYMMDD/</code> folders
+    to wire up a real ingestion bot.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
