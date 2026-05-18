@@ -1,19 +1,19 @@
-/* ───────── Theme: matches Irisicy4/awesome-mmdataset-website ───────── */
+/* ───────── Theme: 素雅 — ink-wash neutrals + celadon × bronze ───────── */
 :root {
-  --bg-start: #fdf4ff;
-  --bg-end: #eef6ff;
-  --card: #ffffff;
-  --card-accent: #f6f8ff;
-  --ink: #1f2a37;
-  --ink-muted: #6b7280;
-  --border: #e3e8f4;
-  --accent: #7c3aed;
-  --accent-2: #0ea5e9;
-  --accent-soft: rgba(124, 58, 237, 0.08);
-  --accent-soft-2: rgba(14, 165, 233, 0.1);
-  --danger: #db2777;
-  --shadow-sm: 0 1px 2px rgba(31, 42, 55, 0.04), 0 1px 4px rgba(31, 42, 55, 0.06);
-  --shadow-md: 0 6px 18px rgba(124, 58, 237, 0.08), 0 2px 6px rgba(31, 42, 55, 0.06);
+  --bg-start: #faf7f2;       /* warm xuan-paper */
+  --bg-end:   #f1f0eb;       /* cool stone */
+  --card:     #ffffff;
+  --card-accent: #f5f2ec;    /* cream */
+  --ink:      #2d2e33;       /* warm charcoal, not pure black */
+  --ink-muted:#8b8d92;       /* warm gray */
+  --border:   #e7e3da;       /* warm subtle */
+  --accent:   #6b7d6e;       /* 青灰 celadon-sage */
+  --accent-2: #9b8264;       /* 烟褐 muted bronze */
+  --accent-soft: rgba(107, 125, 110, 0.10);
+  --accent-soft-2: rgba(155, 130, 100, 0.10);
+  --danger:   #a64b4b;       /* muted brick */
+  --shadow-sm: 0 1px 2px rgba(45, 46, 51, 0.04), 0 1px 4px rgba(45, 46, 51, 0.05);
+  --shadow-md: 0 4px 14px rgba(45, 46, 51, 0.06), 0 2px 6px rgba(45, 46, 51, 0.04);
   --radius: 14px;
   --radius-sm: 10px;
 }
@@ -25,8 +25,8 @@ body {
     BlinkMacSystemFont, sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(124, 58, 237, 0.10), transparent 60%),
-    radial-gradient(1000px 500px at 110% 10%, rgba(14, 165, 233, 0.10), transparent 60%),
+    radial-gradient(1400px 700px at 12% -10%, rgba(107, 125, 110, 0.05), transparent 60%),
+    radial-gradient(1200px 600px at 110% 10%, rgba(155, 130, 100, 0.05), transparent 60%),
     linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -54,11 +54,11 @@ body {
 .brand-mark {
   width: 40px; height: 40px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-  color: white;
+  background: var(--ink);
+  color: var(--bg-start);
   display: grid; place-items: center;
-  font-weight: 800; font-size: 20px;
-  box-shadow: var(--shadow-md);
+  font-weight: 700; font-size: 20px;
+  letter-spacing: -0.02em;
 }
 .brand-title {
   font-weight: 800; font-size: 18px; letter-spacing: -0.01em;
@@ -81,9 +81,8 @@ body {
 }
 .tab:hover { color: var(--ink); background: var(--accent-soft); }
 .tab.active {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-  color: white;
-  box-shadow: var(--shadow-sm);
+  background: var(--ink);
+  color: var(--bg-start);
 }
 
 /* ───────── Tab panes ───────── */
@@ -304,8 +303,8 @@ body {
   max-width: 600px;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-  color: white;
+  background: var(--ink);
+  color: var(--bg-start);
   border: 0;
   padding: 10px 20px;
   border-radius: 10px;
@@ -313,10 +312,9 @@ body {
   font-size: 14px;
   cursor: pointer;
   font-family: inherit;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: background 0.15s, transform 0.15s;
 }
-.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
 .btn-secondary {
   background: var(--card);
   color: var(--ink);
